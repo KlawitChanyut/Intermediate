@@ -15,8 +15,6 @@ namespace Intermediate.Inheritance_Second
 
         public Constructors_and_Inheritance(string registrationNumber)
         {
-            _registrationNumber = registrationNumber;
-
             Console.WriteLine("Vehicle is being initialized. {0}", registrationNumber);
         }
     }
