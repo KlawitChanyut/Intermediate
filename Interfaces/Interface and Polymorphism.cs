@@ -14,5 +14,16 @@ namespace Intermediate.Interfaces
         {
             _notificationChannels = new List<INotificationChannel>();
         }
+
+        public void Encode(Video video)
+        {
+            foreach (var channel in _notificationChannels)
+                channel.Send(new Message());
+        }
+
+        public void RegisterNotificationChannal(INotificationChannal channal)
+        {
+            _notificationChannels.Add(channal);
+        }
     }
 }
