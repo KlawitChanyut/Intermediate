@@ -14,6 +14,10 @@ namespace Intermediate.Inheritance_Second
             list.Add(1);
             list.Add("Mosh");
             list.Add(DateTime.Today);
+
+            var anotherList = new List<int>();
+            var name = new List<string>();
+            name.Add();
         }
     }
 }
