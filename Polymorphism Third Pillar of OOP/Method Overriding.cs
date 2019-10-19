@@ -6,27 +6,19 @@ using System.Threading.Tasks;
 
 namespace Intermediate.Polymorphism_Third
 {
-    public class Method_Overriding
+    public class Method_Overriding : Shape
     {
-        public void DrawShapes(List<Shape> shapes)
+        public override void Draw()
         {
-            foreach (var shape in shapes)
-            {
-                switch (shape.Type)
-                {
-                    case ShapeType.Circle:
-                        Console.WriteLine("Draw a circle");
-                        break;
+            Console.WriteLine("Draw a circle");
+        }
+    }
 
-                    case ShapeType.Rectangle:
-                        Console.WriteLine("Draw a rectangle");
-                        break;
-
-                    case ShapeType.Triangle:
-                        Console.WriteLine("Draw a triangle");
-                        break;
-                }
-            }
+    public class Rectangle : Shape
+    {
+        public override void Draw()
+        {
+            Console.WriteLine("Draw a rectangle");
         }
     }
 }
