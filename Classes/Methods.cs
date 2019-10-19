@@ -22,5 +22,11 @@ namespace Intermediate.Classes
             this.X = x;
             this.Y = y;
         }
+
+        public void Move(Methods newLocation)
+        {
+            this.X = newLocation.X;
+            this.Y = newLocation.Y;
+        }
     }
 }
