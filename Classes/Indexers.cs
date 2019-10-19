@@ -16,6 +16,16 @@ namespace Intermediate.Classes
             _dictionary = new Dictionary<string, string>();
         }
 
+        public void SetItem(string key, string vaiue)
+        {
+
+        }
+
+        public string GetItem(string key)
+        {
+
+        }
+
         public string this[string key]
         {
             get { return _dictionary[key]; }
