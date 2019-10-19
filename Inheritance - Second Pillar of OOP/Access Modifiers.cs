@@ -20,18 +20,9 @@ namespace Intermediate.Inheritance_Second
                 Console.WriteLine("Promoted to Level 1");
         }
 
-        public int CalculateRating(bool excludeOrders)
+        protected int CalculateRating(bool excludeOrders)
         {
             return 0;
-        }
-    }
-
-    public class Program
-    {
-        static void Main(string[] args)
-        {
-            var customer = new Customer();
-            var rating = customer.CalculateRating();
         }
     }
 }
