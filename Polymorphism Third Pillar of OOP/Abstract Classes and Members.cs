@@ -6,12 +6,17 @@ using System.Threading.Tasks;
 
 namespace Intermediate.Polymorphism_Third
 {
+    public class Circle : Shape
+    {
+        public override void Draw()
+        {
+            Console.WriteLine("Draw a circle");
+        }
+    }
+
     public class Abstract_Classes_and_Members
     {
-        public int Width { get; set; }
-        public int Height { get; set; }
-
-        public virtual void Draw()
+        static void Main(string[] args)
         {
 
         }
