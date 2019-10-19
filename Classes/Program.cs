@@ -19,7 +19,9 @@ namespace Intermediate
     {
         static void Main(string[] args)
         {
-
+            var person = new Person();
+            person.Name = "Film";
+            person.Introduce("Gym");
         }
     }
 }
