@@ -10,7 +10,7 @@ namespace Intermediate.Classes
     {
         public int Id;
         public string Name;
-        public List<Order> Orders;
+        public List<Order> Orders = new List<Order>();
 
         public Fields(int id)
         {
@@ -18,8 +18,9 @@ namespace Intermediate.Classes
         }
 
         public Fields(int id , string name)
+            : this(id)
         {
-
+            this.Name = name;
         }
     }
 
