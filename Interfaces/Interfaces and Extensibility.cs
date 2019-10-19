@@ -14,5 +14,12 @@ namespace Intermediate.Interfaces
         {
             _logger = logger;
         }
+
+        public void Migrate()
+        {
+            _logger.LogInfo("Migrationg started at {0}") + DateTime.Now);
+            
+            _logger.LogInfo("Migrationg finished at {0}") + DateTime.Now);
+        }
     }
 }
