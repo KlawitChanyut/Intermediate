@@ -13,12 +13,12 @@ namespace Intermediate.Association_between_Classes
 
         public void Copy()
         {
-
+            Console.WriteLine("Object copied to clipboard.");
         }
 
         public void Duplicate()
         {
-
+            Console.WriteLine("Object was duplicated");
         }
     }
 }
