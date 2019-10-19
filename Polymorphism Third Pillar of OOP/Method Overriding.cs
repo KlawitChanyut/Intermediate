@@ -41,5 +41,4 @@ namespace Intermediate.Polymorphism_Third
 
         }
     }
-
 }
