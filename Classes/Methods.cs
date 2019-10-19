@@ -25,8 +25,10 @@ namespace Intermediate.Classes
 
         public void Move(Methods newLocation)
         {
-            this.X = newLocation.X;
-            this.Y = newLocation.Y;
+            if (newLocation == null)
+                throw new ArgumentNullException("newLocation");
+
+            Move(newLocation.X, newLocation.Y);
         }
     }
 }
