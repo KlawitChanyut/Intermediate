@@ -8,11 +8,23 @@ namespace Intermediate.Interfaces
 {
     public class Interfaces_and_Testability
     {
-        static void Main(string[] args)
+        private readonly IShippingCalculator _shippingCalculator;
+
+        public OrderProcassor(IShippingCalculator shippingCalculator)
         {
-            var orderProcessor = new OrderProcessor();
-            var order = new Order { DatePlaced = DateTime.Now, TotalPrice = 100f };
-            orderProcessor.Process(order);
+            _shippingCalculator = shippingCalculator;
+        }
+
+        public void Process(Order order)
+        {
+            if (order.IsShipped)
+                throw new InvalidOperationException("This order is already processed.");
+
+            order.Shipment = new Shipment
+            {
+                Cost = _shippingCalculator.CalculateShipping(order),
+                ShippingDate = DateTime.Today.AddDays(1)
+            };
         }
     }
 }
