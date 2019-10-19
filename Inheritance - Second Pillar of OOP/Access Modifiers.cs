@@ -13,10 +13,14 @@ namespace Intermediate.Inheritance_Second
 
         public void Promote()
         {
-            var rating = CalculateRating();
+            var rating = CalculateRating(excludeOrders: true);
+            if (rating == 0)
+                Console.WriteLine("Promoted to Level 1");
+            else
+                Console.WriteLine("Promoted to Level 1");
         }
 
-        public int CalculateRating()
+        public int CalculateRating(bool excludeOrders)
         {
             return 0;
         }
@@ -27,6 +31,7 @@ namespace Intermediate.Inheritance_Second
         static void Main(string[] args)
         {
             var customer = new Customer();
+            var rating = customer.CalculateRating();
         }
     }
 }
