@@ -10,11 +10,13 @@ namespace Intermediate.Classes
     {
         public int Id;
         public string Name;
-    }
 
-    class Program
-    {
-        static void Main(string[] args)
+        public Customer(int id)
+        {
+            this.Id = id;
+        }
+
+        public Customer(int id, string name)
         {
 
         }
