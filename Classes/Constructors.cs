@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using Intermediate.NewFolder1;
 
 namespace Intermediate.Classes
 {
@@ -10,20 +10,22 @@ namespace Intermediate.Classes
     {
         public int Id;
         public string Name;
+        public List<Order> Orders;
 
         public Constructors()
         {
-
+            Orders = new List<Order>();
         }
 
         public Constructors(int id)
+            : this()
         {
             this.Id = id;
         }
 
         public Constructors(int id, string name)
+            : this(id)
         {
-            this.Id = id;
             this.Name = name;
         }
     }
