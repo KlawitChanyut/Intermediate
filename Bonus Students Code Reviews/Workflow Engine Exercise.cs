@@ -12,7 +12,7 @@ namespace Intermediate.Bonus_Students
         {
             WorkFlowEngine workFlow = new WorkFlowEngine();
             workFlow.AddWorkFlowObject(new VideoUploader());
-            workFlow.AddWorkFlowObject(new CallWedService());
+            workFlow.AddWorkFlowObject(new CallWebService());
             workFlow.AddWorkFlowObject(new SendEmail());
             workFlow.AddWorkFlowObject(new ChangStatus());
 
@@ -32,6 +32,14 @@ namespace Intermediate.Bonus_Students
         public void Execute()
         {
             Console.WriteLine("Uploading a video");
+        }
+    }
+
+    class CallWebService : IWorkFlow
+    {
+        public void Execute()
+        {
+            Console.WriteLine("Calling web service...");
         }
     }
 }
