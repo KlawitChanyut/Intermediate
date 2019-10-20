@@ -14,18 +14,17 @@ namespace Intermediate.Bonus_Students
 
             for (var i = 0; i < 2; i++)
             {
-                stopwatch.Start(DateTime.Now);
+                stopwatch.Start(DateTime.Today.AddDays(1));
 
                 for (var j = 0; j <= 1000; j++)
                 {
                     Thread.Sleep(1);
                 }
 
-                stopwatch.StartTime = DateTime.Today.AddDays(1);
-                stopwatch.EndTime = DateTime.Today.AddYears(-1);
+    
                 //stopwatch.Start(Datetime.Now);
 
-                stopwatch.Stop(DateTime.Now);
+                stopwatch.Stop(DateTime.Today.AddYears(-1));
 
                 Console.WriteLine(stopwatch.GetInterval().ToString());
                 Console.ReadLine();
@@ -35,16 +34,15 @@ namespace Intermediate.Bonus_Students
 
     public class StopWatch
     {
-        public DateTime StartTime { get; set; }
-        public DateTime EndTime { get; set; }
-
-        private bool running = false;
+        private DateTime _startTime;
+        private DateTime _endTime;
+        private bool running;
 
         public void Start(DateTime start)
         {
-            if (!running)
+            if (!_running)
             {
-                StartTime = start;
+                _startTime = start;
                 running = true;
             }
             else
@@ -55,7 +53,7 @@ namespace Intermediate.Bonus_Students
 
         public void Stop(DateTime stop)
         {
-            if (running)
+            if (_running)
             {
                 EndTime = stop;
                 running = false;
