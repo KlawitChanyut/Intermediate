@@ -16,7 +16,7 @@ namespace Intermediate.Bonus_Students
             {
                 stopwatch.Start(DateTime.Now);
 
-                for (var l = 0; j <= 1000; j++)
+                for (var j = 0; j <= 1000; j++)
                 {
                     Thread.Sleep(1);
                 }
@@ -49,6 +49,22 @@ namespace Intermediate.Bonus_Students
             {
                 throw new InvalidOperationException("Stopwatch is already running!");
             }
+        }
+
+        public void Stop(DateTime stop)
+        {
+            if (running)
+            {
+                EndTime = stop;
+                running = false;
+            }
+        }
+
+        public TimeSpan GetInterval()
+        {
+            var duration = EndTime - StartTime;
+
+            return duration;
         }
     }
 }
