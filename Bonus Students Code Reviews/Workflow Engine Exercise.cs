@@ -42,4 +42,12 @@ namespace Intermediate.Bonus_Students
             Console.WriteLine("Calling web service...");
         }
     }
+
+    class SendEmail : IWorkFlow
+    {
+        public void Execute()
+        {
+            Console.WriteLine("Sending an email...");
+        }
+    }
 }
