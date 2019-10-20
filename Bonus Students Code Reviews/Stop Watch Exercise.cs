@@ -15,6 +15,18 @@ namespace Intermediate.Bonus_Students
             for (var i = 0; i < 2; i++)
             {
                 stopwatch.Start(DateTime.Now);
+
+                for (var l = 0; j <= 1000; j++)
+                {
+                    Thread.Sleep(1);
+                }
+
+                //stopwatch.Start(Datetime.Now);
+
+                stopwatch.Stop(DateTime.Now);
+
+                Console.WriteLine(stopwatch.GetInterval().ToString());
+                Console.ReadLine();
             }
         }
     }
