@@ -22,9 +22,35 @@ namespace Intermediate.Bonus_Students
         }
     }
 
-    interface IWorkFlow
+    public interface IWorkFlow
     {
         void Execute();
+    }
+
+    public interface IWorkflow
+    {
+        void Add(ITask task);
+        void Remove(ITask task);
+    }
+
+    public class Workflow : IWorkflow
+    {
+        private List<ITask> _tasks;
+
+        public Workflow()
+        {
+            _tasks = new List<ITask>();
+        }      
+
+        public void Add(ITask task)
+        {
+            _tasks.Add(task);
+        }
+
+        public void Remove(ITask task)
+        {
+            _tasks.Remove(task);
+        }
     }
 
     class VideoUploader : IWorkFlow
@@ -61,22 +87,7 @@ namespace Intermediate.Bonus_Students
 
     class WorkFlowEngine
     {
-        private List<IWorkFlow> T;
-
-        public WorkFlowEngine()
-        {
-            T = new List<IWorkFlow>();
-        }
-
-        public void AddWorkFlowObject(IWorkFlow iObject)
-        {
-            T.Add(iObject);
-        }
-
-        public void RemoveWorkFlowObject(IWorkFlow iObject)
-        {
-            T.Remove(iObject);
-        }
+        
 
         public void Run()
         {
