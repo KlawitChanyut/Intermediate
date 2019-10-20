@@ -58,4 +58,32 @@ namespace Intermediate.Bonus_Students
             Console.WriteLine("Status changed...");
         }
     }
+
+    class WorkFlowEngine
+    {
+        private List<IWorkFlow> T;
+
+        public WorkFlowEngine()
+        {
+            T = new List<IWorkFlow>();
+        }
+
+        public void AddWorkFlowObject(IWorkFlow iObject)
+        {
+            T.Add(iObject);
+        }
+
+        public void RemoveWorkFlowObject(IWorkFlow iObject)
+        {
+            T.Remove(iObject);
+        }
+
+        public void Run()
+        {
+            foreach (IWorkFlow I in T)
+            {
+                I.Execute();
+            }
+        }
+    }
 }
