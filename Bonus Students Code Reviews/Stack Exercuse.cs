@@ -48,4 +48,20 @@ namespace Intermediate.Bonus_Students
 
         }
     }
+
+    public object Pop()
+    {
+        if (_list.Count == 0)
+            throw new InvalidOperationException("There are no elements in the stack yet.");
+        object ToReturn = _list[0];
+
+        int elements = _list.Count;
+        for (int i = 0; i < elements - 1; i++)
+        {
+            _list[i] = (int)_list[i + 1];
+        }
+        _list.Remove(elements - 1);
+
+        return (ToReturn);
+    }
 }
