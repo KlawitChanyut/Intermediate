@@ -10,16 +10,18 @@ namespace Intermediate.Bonus_Students
     {
         static void Main(string[] args)
         {
-            Stack _stack = new Stack();
+            var stack = new Stack();
 
             int ini = 0;
             int man = 5;
 
             for (int i = ini; i <= max; i++)
-                _stack.Push(i);
+                stack.Push(i);
+
+            stack.Clear();
 
             for (int i = ini; i <= max; i++)
-                Console.WriteLine(_stack.Pop());
+                Console.WriteLine(stack.Pop());
 
             Console.ReadLine();
         }
@@ -50,5 +52,10 @@ namespace Intermediate.Bonus_Students
         _list.RemoveAt(_list.Count - 1);
 
         return (ToReturn);
+    }
+
+    public void Clear()
+    {
+        _list.Clear();
     }
 }
