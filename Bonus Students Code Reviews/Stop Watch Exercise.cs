@@ -40,7 +40,15 @@ namespace Intermediate.Bonus_Students
 
         public void Start(DateTime start)
         {
-
+            if (!running)
+            {
+                StartTime = start;
+                running = true;
+            }
+            else
+            {
+                throw new InvalidOperationException("Stopwatch is already running!");
+            }
         }
     }
 }
