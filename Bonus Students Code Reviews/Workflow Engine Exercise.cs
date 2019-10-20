@@ -14,7 +14,7 @@ namespace Intermediate.Bonus_Students
             workFlow.AddWorkFlowObject(new VideoUploader());
             workFlow.AddWorkFlowObject(new CallWebService());
             workFlow.AddWorkFlowObject(new SendEmail());
-            workFlow.AddWorkFlowObject(new ChangStatus());
+            workFlow.AddWorkFlowObject(new ChangeStatus());
 
             workFlow.Run();
 
@@ -48,6 +48,14 @@ namespace Intermediate.Bonus_Students
         public void Execute()
         {
             Console.WriteLine("Sending an email...");
+        }
+    }
+
+    class ChangeStatus : IWorkFlow
+    {
+        public void Execute()
+        {
+            Console.WriteLine("Status changed...");
         }
     }
 }
