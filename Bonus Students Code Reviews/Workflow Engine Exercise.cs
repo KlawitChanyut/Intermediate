@@ -10,13 +10,14 @@ namespace Intermediate.Bonus_Students
     {
         static void Main(string[] args)
         {
-            WorkFlowEngine workFlow = new WorkFlowEngine();
-            workFlow.AddWorkFlowObject(new VideoUploader());
-            workFlow.AddWorkFlowObject(new CallWebService());
-            workFlow.AddWorkFlowObject(new SendEmail());
-            workFlow.AddWorkFlowObject(new ChangeStatus());
+            var Workflow workFlow = new Workflow();
+            workFlow.Add(new VideoUploader());
+            workFlow.Add(new CallWebService());
+            workFlow.Add(new SendEmail());
+            workFlow.Add(new ChangeStatus());
 
-            workFlow.Run();
+            var engine = new WorkFlowEngine();
+            engine.Run(workFlow);
 
             Console.ReadLine();
         }
@@ -31,11 +32,12 @@ namespace Intermediate.Bonus_Students
     {
         void Add(ITask task);
         void Remove(ITask task);
+        IEnumerable<ITask> GatTasks();
     }
 
     public class Workflow : IWorkflow
     {
-        private List<ITask> _tasks;
+        private readonly<ITask> _tasks;
 
         public Workflow()
         {
@@ -50,6 +52,11 @@ namespace Intermediate.Bonus_Students
         public void Remove(ITask task)
         {
             _tasks.Remove(task);
+        }
+
+        public IEnumerable<ITask> GetTasks()
+        {
+            return _tasks;
         }
     }
 
@@ -85,13 +92,25 @@ namespace Intermediate.Bonus_Students
         }
     }
 
-    class WorkFlowEngine
+    public class WorkFlowEngine
     {
-        
-
-        public void Run()
+        public void Run(IWorkflow workflow)
         {
-            foreach (IWorkFlow I in T)
+            foreach (ITask I in workflow.GetTasks())
+            {
+                try
+                {
+                    I.Execute();
+                }
+                catch (Exception)
+                {
+                    // Logging
+                    // Terminate and persist the state of workflow
+                    throw;
+                }
+
+            }
+            foreach (IWorkFlow I in workflow.GetTasks())
             {
                 I.Execute();
             }
