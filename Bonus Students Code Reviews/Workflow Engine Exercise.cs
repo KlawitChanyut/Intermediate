@@ -21,4 +21,17 @@ namespace Intermediate.Bonus_Students
             Console.ReadLine();
         }
     }
+
+    interface IWorkFlow
+    {
+        void Execute();
+    }
+
+    class VideoUploader : IWorkFlow
+    {
+        public void Execute()
+        {
+            Console.WriteLine("Uploading a video");
+        }
+    }
 }
