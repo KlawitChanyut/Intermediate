@@ -36,33 +36,34 @@ namespace Intermediate.Bonus_Students
     {
         private DateTime _startTime;
         private DateTime _endTime;
-        private bool running;
+        private bool _running;
 
-        public void Start(DateTime start)
-        {
-            if (!_running)
-            {
-                _startTime = start;
-                running = true;
-            }
-            else
-            {
-                throw new InvalidOperationException("Stopwatch is already running!");
-            }
-        }
-
-        public void Stop(DateTime stop)
+        public void Start()
         {
             if (_running)
             {
-                EndTime = stop;
-                running = false;
+                throw new InvalidOperationException("Stopwatch is already running!");
+                
+            }
+            else
+            {
+                _startTime = DateTime.Now;
+                _running = true;
+            }
+        }
+
+        public void Stop()
+        {
+            if (_running)
+            {
+                _endTime = DateTime.Now;
+                _running = false;
             }
         }
 
         public TimeSpan GetInterval()
         {
-            var duration = EndTime - StartTime;
+            var duration = _endTime - _startTime;
 
             return duration;
         }
