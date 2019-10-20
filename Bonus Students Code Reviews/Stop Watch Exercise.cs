@@ -21,6 +21,8 @@ namespace Intermediate.Bonus_Students
                     Thread.Sleep(1);
                 }
 
+                stopwatch.StartTime = DateTime.Today.AddDays(1);
+                stopwatch.EndTime = DateTime.Today.AddYears(-1);
                 //stopwatch.Start(Datetime.Now);
 
                 stopwatch.Stop(DateTime.Now);
