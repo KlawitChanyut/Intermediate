@@ -14,19 +14,17 @@ namespace Intermediate.Bonus_Students
 
             for (var i = 0; i < 2; i++)
             {
-                stopwatch.Start(DateTime.Today.AddDays(1));
+                stopwatch.Start();
 
-                for (var j = 0; j <= 1000; j++)
-                {
-                    Thread.Sleep(1);
-                }
+                Thread.Sleep(1000);
 
-    
                 //stopwatch.Start(Datetime.Now);
 
-                stopwatch.Stop(DateTime.Today.AddYears(-1));
+                stopwatch.Stop();
 
-                Console.WriteLine(stopwatch.GetInterval().ToString());
+                Console.WriteLine("Duration: " + stopwatch.GetInterval());
+
+                Console.WriteLine("Press Enter to run the stopwatch noe more time.");
                 Console.ReadLine();
             }
         }
@@ -62,9 +60,7 @@ namespace Intermediate.Bonus_Students
 
         public TimeSpan GetInterval()
         {
-            var duration = _endTime - _startTime;
-
-            return duration;
+            return _endTime - _startTime;
         }
     }
 }
