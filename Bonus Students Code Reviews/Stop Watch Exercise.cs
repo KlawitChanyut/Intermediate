@@ -41,24 +41,23 @@ namespace Intermediate.Bonus_Students
         public void Start()
         {
             if (_running)
-            {
+            
                 throw new InvalidOperationException("Stopwatch is already running!");
                 
-            }
-            else
-            {
-                _startTime = DateTime.Now;
-                _running = true;
-            }
+                     
+            _startTime = DateTime.Now;
+            _running = true;           
         }
 
         public void Stop()
         {
-            if (_running)
-            {
-                _endTime = DateTime.Now;
-                _running = false;
-            }
+            if (!_running)
+                throw new InvalidOperationException("Stopwatch is not running!");
+            
+            
+            _endTime = DateTime.Now;
+            _running = false;
+            
         }
 
         public TimeSpan GetInterval()
