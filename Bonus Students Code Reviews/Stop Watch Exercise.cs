@@ -30,4 +30,17 @@ namespace Intermediate.Bonus_Students
             }
         }
     }
+
+    public class StopWatch
+    {
+        public DateTime StartTime { get; set; }
+        public DateTime EndTime { get; set; }
+
+        private bool running = false;
+
+        public void Start(DateTime start)
+        {
+
+        }
+    }
 }
